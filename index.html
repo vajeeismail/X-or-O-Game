@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-or-O GAME</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="start-greet"><span>X-or-O</span></div>
+    <main class="main-body">
+        <section class="players-register">
+            <h1>Welcome to X-or-O</h1>
+            <p>To start playing, please register 2 players names!</p>
+            <form class="register-form" method="POST">
+                <div class="player">
+                    <label for="player1">Player 1: </label>
+                    <input type="text" id="player1" name="player1" placeholder="Enter player1 name" required>
+                </div>
+                <div class="player">
+                    <label for="player2">Player 2: </label>
+                    <input type="text" id="player2" name="player2" placeholder="Enter player2 name" required>
+                </div>
+                <button type="submit" class="btn-primary">Start Game</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+@import url("./abstract/variables.css");
+@import url("./components/button.css");
+@import url("./utilities/animation.css");
+
+/* Body Style */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--secondary-color);
+}
+
+/* Start Greet */
+.start-greet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeInOut 2s ease-in-out forwards;
+}
+
+.start-greet span {
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.main-body {
+  opacity: 0;
+  transition: opacity 1s ease;
+  display: none;
+}
+
+.players-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-form {
+  background-color: white;
+  padding: 4rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.players-register h1 {
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+.players-register p {
+  color: var(--font-color);
+  font-size: 1rem;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.player label {
+  font-size: 1.2rem;
+  color: var(--font-color);
+}
+
+.player input {
+  padding: 0.5rem;
+  border: 2px solid var(--primary-color);
+  background-color: var(--secondary-color);
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.player input:focus {
+  border-color: var(--secondary-color);
+  background-color: #fff8fc;
+  outline: none;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+
+
+
+
