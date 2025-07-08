@@ -1,5 +1,8 @@
 :root {
     --primary-color: #c1109e;
     --secondary-color: #f0f0f0;
-    --font-color: gray;;
+    --font-color: gray;
+
+    --player1-color: red;
+    --player2-color: blue;
 }

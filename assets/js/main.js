@@ -12,3 +12,16 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 50);
     }, 2000); // Match animation duration
 });
+
+const registerForm = document.querySelector(".register-form");
+const gameArea = document.querySelector(".game-area");
+
+registerForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent page reload
+
+  // Hide registration form
+  document.querySelector(".players-register").style.display = "none";
+
+  // Show game area
+  gameArea.style.display = "block";
+});

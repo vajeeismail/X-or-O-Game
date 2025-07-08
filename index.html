@@ -25,6 +25,39 @@
                 <button type="submit" class="btn-primary">Start Game</button>
             </form>
         </section>
+
+        <section class="game-area" style="display: none;">
+            <div class="game-rounds">
+                <h2>Remining Rounds: <span>10</span></h2>
+            </div>
+            <div class="game-layout">
+                <div class="player-score player1-score">
+                    <h3>Player 1</h3>
+                    <h2>X</h2>
+                    <p>Score: <span id="score1">0</span></p>
+                </div>
+
+                <div class="playing-board">
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                </div>
+
+                <div class="player-score player2-score">
+                    <h3>Player 2</h3>
+                    <h2>O</h2>
+                    <p>Score: <span id="score2">0</span></p>
+                </div>
+            </div>
+
+            <button class="btn-primary" id="exit-btn">Exit Game</button>
+        </section>
     </main>
 
     <script src="assets/js/main.js"></script>
