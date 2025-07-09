@@ -37,6 +37,8 @@ let scores = {X:0, O:0};
 let gameActive = true;
 
 let boardState = Array(9).fill(null);
+
+let playerNames = { X: "", O: "" };
 let currentPlayer = "X";
 let currentColor = "red";
 let startingPlayer = "X";
@@ -45,8 +47,8 @@ let startingPlayer = "X";
 registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    player1Set.textContent = player1Input.value.trim();
-    player2Set.textContent = player2Input.value.trim();
+    playerNames.X = player1Input.value.trim();
+    playerNames.O = player2Input.value.trim();
 
     document.querySelector(".players-register").style.display = "none";
 
@@ -69,7 +71,7 @@ function handleMove(cell, index) {
     cell.classList.add(currentColor);
 
     if (checkWin(currentPlayer)) {
-        alert(`Player ${currentPlayer} win this round`);
+        alert(`Player ${playerNames[currentPlayer]} win this round`);
         scores [currentPlayer]++;
         updateScores();
         proceedToNextRound();
@@ -122,6 +124,7 @@ function startNewRound() {
     if (currentRound < lastRounds) {
         gameActive = false;
         alert("Game Over! 10 Rounds Finished");
+        gameFinished();
         return;
     }
 
@@ -131,7 +134,7 @@ function startNewRound() {
     gameActive = true;
 
     currentPlayer = startingPlayer; 
-    currentColor = currentPlayer === "X" ? "O" : "X"; 
+    currentColor = currentPlayer === "X" ? "red" : "blue";
     startingPlayer = startingPlayer === "X" ? "O" : "X"; 
     
     // Clrea cell
@@ -146,10 +149,34 @@ function startNewRound() {
 function proceedToNextRound() {
     gameActive = false;
     currentRound--;
-    console.log(currentRound);
 
     setTimeout(() => {
         startNewRound();
     }, 1000);    
 }
 
+// Finished Game Show Alert
+function gameFinished() {
+    let message = "";
+
+    if (scores.X > scores.O) {
+        message = `Congrats ${playerNames.X} 🏆 You Win this Game \nYour Scores: ${scores.X}/10`;
+    }
+    else if (scores.O > scores.X) {
+        message = `Congrats ${playerNames.O} 🏆 You Win this Game \nYour Scores: ${scores.O}/10`;
+    }
+    else {
+        message = `🤝 It's a draw!\nFinal Score: ${playerNames.X}: ${scores.X} | ${playerNames.O}: ${scores.O}`;
+    }
+
+    alert(message);
+
+    location.reload();
+}
+
+// Exit Game and Relod first Register
+exitBtn.addEventListener("click", () => {
+    if (confirm("Are you sure you want to exit the game?")) {
+        location.reload();
+    }
+});
