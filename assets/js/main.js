@@ -39,6 +39,7 @@ let gameActive = true;
 let boardState = Array(9).fill(null);
 let currentPlayer = "X";
 let currentColor = "red";
+let startingPlayer = "X";
 
 // Register Form Submited Actions & Set Input Players into Score Board
 registerForm.addEventListener("submit", (e) => {
@@ -74,8 +75,14 @@ function handleMove(cell, index) {
         proceedToNextRound();
     }
 
+    else if (boardState.every(cell => cell !== null)) {
+        // All cells filled but no win → draw
+        alert("It's a draw!");
+        proceedToNextRound();
+    } 
+
     else {
-        switchPlayer();   
+        switchPlayer();
     }  
 }
 
@@ -110,6 +117,31 @@ function checkWin(player) {
     );
 }
 
+// New Round
+function startNewRound() {
+    if (currentRound < lastRounds) {
+        gameActive = false;
+        alert("Game Over! 10 Rounds Finished");
+        return;
+    }
+
+    document.querySelector(".game-rounds span").textContent = currentRound;
+
+    boardState = Array(9).fill(null);
+    gameActive = true;
+
+    currentPlayer = startingPlayer; 
+    currentColor = currentPlayer === "X" ? "O" : "X"; 
+    startingPlayer = startingPlayer === "X" ? "O" : "X"; 
+    
+    // Clrea cell
+    cells.forEach(cell => {
+        cell.textContent = "";
+        cell.classList.remove("red", "blue");
+    });
+};
+
+
 // Process the next round
 function proceedToNextRound() {
     gameActive = false;
@@ -120,3 +152,4 @@ function proceedToNextRound() {
         startNewRound();
     }, 1000);    
 }
+
