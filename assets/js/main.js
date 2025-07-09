@@ -50,6 +50,9 @@ registerForm.addEventListener("submit", (e) => {
     playerNames.X = player1Input.value.trim();
     playerNames.O = player2Input.value.trim();
 
+    player1Set.textContent = playerNames.X;
+    player2Set.textContent = playerNames.O;
+
     document.querySelector(".players-register").style.display = "none";
 
     gameArea.style.display = "block";
