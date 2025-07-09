@@ -110,15 +110,6 @@ function checkWin(player) {
     );
 }
 
-// New Round
-function startNewRound () {
-    if (currentRound === lastRounds) {
-        alert("Game Over! 10 Rounds Finished");
-    }
-
-    document.querySelector(".game-rounds span").textContent = currentRound;
-};
-
 // Process the next round
 function proceedToNextRound() {
     gameActive = false;
